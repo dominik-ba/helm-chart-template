@@ -1,0 +1,27 @@
+apiVersion: v1
+entries:
+  helm-chart-template:
+  - apiVersion: v2
+    appVersion: 0.1.0-depends
+    created: "2022-05-23T20:58:10.492039576Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: A template cahrt which can be used to deploy things without creating
+      a specific chart for that app
+    digest: aa0787685c7b0cfc87032c8dcc26299df6ae5a7b31d47961a6de4514be935e12
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: dominik.bartsch90@gmail.com
+      name: dominik-ba
+    name: helm-chart-template
+    sources:
+    - https://github.com/dominik-ba/helm-chart-template
+    type: application
+    urls:
+    - https://github.com/dominik-ba/helm-chart-template/releases/download/helm-chart-template-0.1.0/helm-chart-template-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-05-23T20:58:10.492059376Z"
