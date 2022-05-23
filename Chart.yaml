@@ -1,0 +1,19 @@
+apiVersion: v2
+name: template
+version: 0.1.0
+appVersion: 0.1.0-depends
+kubeVersion: "^1.8.0-0"
+description: A template cahrt which can be used to deploy things without creating a specific chart for that app
+sources:
+  - https://github.com/dominik-ba/helm-chart-template
+maintainers:
+  - name: dominik-ba
+    email: dominik.bartsch90@gmail.com
+type: application
+engine: gotpl
+dependencies:
+  - name: common
+    repository: https://charts.bitnami.com/bitnami
+    tags:
+      - bitnami-common
+    version: 1.x.x

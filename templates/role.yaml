@@ -1,0 +1,27 @@
+{{- if and .Values.rbac.create (not .Values.rbac.useExistingRole) -}}
+apiVersion: {{ template "template.rbac.apiVersion" . }}
+kind: Role
+metadata:
+  name: {{ template "template.fullname" . }}
+  namespace: {{ template "template.namespace" . }}
+  labels:
+    {{- include "template.labels" . | nindent 4 }}
+{{- with .Values.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+{{- if or .Values.rbac.pspEnabled (and .Values.rbac.namespaced .Values.rbac.extraRoleRules) }}
+rules:
+{{- if .Values.rbac.pspEnabled }}
+- apiGroups:      ['extensions']
+  resources:      ['podsecuritypolicies']
+  verbs:          ['use']
+  resourceNames:  [{{ template "template.fullname" . }}]
+{{- end }}
+{{- with .Values.rbac.extraRoleRules }}
+{{ toYaml . | indent 0 }}
+{{- end}}
+{{- else }}
+rules: []
+{{- end }}
+{{- end }}
