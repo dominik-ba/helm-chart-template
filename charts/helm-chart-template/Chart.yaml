@@ -1,5 +1,5 @@
 apiVersion: v2
-name: template
+name: helm-chart-template
 version: 0.1.0
 appVersion: 0.1.0-depends
 kubeVersion: "^1.8.0-0"
