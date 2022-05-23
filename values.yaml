@@ -310,12 +310,11 @@ initChownData:
   #    memory: 128Mi
 
 
-## Define command to be executed at startup by template container
-## Needed if using `vault-env` to manage secrets (ref: https://banzaicloud.com/blog/inject-secrets-into-pods-vault/)
-## Default is "run.sh" as defined in template's Dockerfile
-# command:
-# - "sh"
-# - "/run.sh"
+## add arguments via command
+command: []
+# - "8080"
+# - "-l"
+# - "--debug"
 
 
 ## Extra environment variables that will be pass onto deployment pods
